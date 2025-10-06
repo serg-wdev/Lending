@@ -31,13 +31,19 @@ export default function Header() {
     useEffect(() => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
         } else {
             document.body.style.overflow = 'unset';
+            document.body.style.position = 'unset';
+            document.body.style.width = 'unset';
         }
 
         // Очищаем стили при размонтировании компонента
         return () => {
             document.body.style.overflow = 'unset';
+            document.body.style.position = 'unset';
+            document.body.style.width = 'unset';
         };
     }, [isMobileMenuOpen]);
 
@@ -76,7 +82,7 @@ export default function Header() {
     };
 
     return (
-        <header className={`fixed top-0 left-0 z-20 w-full px-4 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3 transition-colors duration-300 ${
+        <header className={`fixed top-0 left-0 z-20 w-full px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3 transition-colors duration-300 ${
             scrolled ? "bg-black/70 backdrop-blur-sm shadow-md text-gray-300" : "bg-transparent text-white"
         }`}>
             <div className='flex justify-between items-center max-w-7xl mx-auto'>
