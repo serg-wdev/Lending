@@ -6,22 +6,39 @@ import { FaPhone, FaMapMarkerAlt, FaEnvelope, FaBars, FaTimes } from 'react-icon
 export default function Header() {
     // состояние для отслеживания скролла
     const [scrolled, setScrolled] = useState(false);
+    
+    // Лог для отладки состояния scrolled
+    useEffect(() => {
+        console.log('Scrolled state changed to:', scrolled);
+    }, [scrolled]);
     // состояние для мобильного меню
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     // состояние для уведомления о копировании email
     const [showEmailNotification, setShowEmailNotification] = useState(false);
 
     useEffect(() => {
+        let ticking = false;
+        
         const handleScroll = () => {
-            const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollY > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                    console.log('Scroll detected:', scrollY); // Для отладки
+                    if (scrollY > 50) {
+                        console.log('Setting scrolled to true'); // Для отладки
+                        setScrolled(true);
+                    } else {
+                        console.log('Setting scrolled to false'); // Для отладки
+                        setScrolled(false);
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
         // Принудительно проверяем начальное состояние
+        console.log('Initial scroll check'); // Для отладки
         handleScroll();
 
         // Добавляем обработчик с passive: false для лучшей совместимости
