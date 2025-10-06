@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
 interface FormData {
@@ -19,6 +19,27 @@ export default function ContactForm() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Предотвращаем горизонтальный скролл на iOS при фокусе на поля
+    useEffect(() => {
+        const preventHorizontalScroll = () => {
+            document.body.style.overflowX = 'hidden';
+            document.documentElement.style.overflowX = 'hidden';
+        };
+
+        const restoreScroll = () => {
+            document.body.style.overflowX = 'unset';
+            document.documentElement.style.overflowX = 'unset';
+        };
+
+        // Применяем стили при монтировании
+        preventHorizontalScroll();
+
+        // Очищаем при размонтировании
+        return () => {
+            restoreScroll();
+        };
+    }, []);
 
     const formatPhoneNumber = (value: string) => {
         // Удаляем все нецифровые символы
@@ -78,8 +99,8 @@ export default function ContactForm() {
     };
 
     return (
-        <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-50">
-            <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl">
+        <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-50 overflow-x-hidden">
+            <div className="container mx-auto px-2 xs:px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl overflow-x-hidden">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
                     <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6">
                         Get Your Free Estimate
