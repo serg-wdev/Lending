@@ -13,9 +13,14 @@ export default function Hero() {
 
     return (
             <section
-                    className="relative z-0 w-full min-h-[100svh] bg-cover bg-center bg-fixed flex items-center justify-center"
+                    className="relative z-0 w-full min-h-[100svh] bg-cover bg-center bg-no-repeat flex items-center justify-center"
                     style={{
                         backgroundImage: "url('/bg-image.jpeg')",
+                        backgroundAttachment: typeof window !== 'undefined' && window.innerWidth > 768 ? 'fixed' : 'scroll',
+                        backgroundSize: 'cover',
+                        WebkitBackgroundSize: 'cover',
+                        MozBackgroundSize: 'cover',
+                        OBackgroundSize: 'cover'
                     }}
             >
                 {/* затемнение */}
