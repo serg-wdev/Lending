@@ -13,17 +13,23 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 50) {
+            const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollY > 50) {
                 setScrolled(true);
             } else {
                 setScrolled(false);
             }
         };
 
-        window.addEventListener("scroll", handleScroll);
+        // Добавляем обработчик с passive: false для лучшей совместимости
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        
+        // Также добавляем обработчик для touch событий на мобильных
+        window.addEventListener("touchmove", handleScroll, { passive: true });
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("touchmove", handleScroll);
         };
     }, []);
 
@@ -60,9 +66,18 @@ export default function Header() {
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
+            // Сначала закрываем меню
+            setIsMobileMenuOpen(false);
+            
+            // Небольшая задержка для закрытия меню перед скроллом
+            setTimeout(() => {
+                const elementTop = el.offsetTop - 80; // Учитываем высоту header
+                window.scrollTo({
+                    top: elementTop,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
-        setIsMobileMenuOpen(false);
     };
 
     // функция для копирования email
