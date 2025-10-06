@@ -8,6 +8,8 @@ export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     // состояние для мобильного меню
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    // состояние для уведомления о копировании email
+    const [showEmailNotification, setShowEmailNotification] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,6 +57,22 @@ export default function Header() {
             el.scrollIntoView({ behavior: "smooth" });
         }
         setIsMobileMenuOpen(false);
+    };
+
+    // функция для копирования email
+    const copyEmailToClipboard = async (e: React.MouseEvent) => {
+        e.preventDefault();
+        const email = 'cornerstone_renovation@outlook.com';
+        
+        try {
+            await navigator.clipboard.writeText(email);
+            setShowEmailNotification(true);
+            setTimeout(() => {
+                setShowEmailNotification(false);
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy email:', err);
+        }
     };
 
     return (
@@ -105,6 +123,7 @@ export default function Header() {
                     </a>
                     <a 
                         href="mailto:cornerstone_renovation@outlook.com" 
+                        onClick={copyEmailToClipboard}
                         className="relative flex items-center gap-1 xl:gap-2 group"
                         aria-label="Send email"
                     >
@@ -128,6 +147,7 @@ export default function Header() {
                     </a>
                     <a 
                         href="mailto:cornerstone_renovation@outlook.com" 
+                        onClick={copyEmailToClipboard}
                         className="relative flex items-center gap-1 group"
                         aria-label="Send email"
                     >
@@ -202,7 +222,8 @@ export default function Header() {
                                     (952) 465-8195
                                 </a>
                                 <a 
-                                    href="mailto:cornerstone_renovation@outlook.com" 
+                                    href="mailto:cornerstone_renovation@outlook.com"
+                                    onClick={copyEmailToClipboard}
                                     className="flex items-center justify-center gap-3 text-white hover:text-blue-400 transition-colors py-3 text-lg"
                                 >
                                     <FaEnvelope size={20} />
@@ -211,6 +232,13 @@ export default function Header() {
                             </div>
                         </div>
                     </div>
+                </div>
+            )}
+
+            {/* Уведомление о копировании email */}
+            {showEmailNotification && (
+                <div className="fixed top-12 right-16 bg-green-500 text-white px-3 py-1 rounded text-xs font-medium z-[70] transition-all duration-300 shadow-md">
+                    Email copied!
                 </div>
             )}
         </header>

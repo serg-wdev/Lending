@@ -52,9 +52,9 @@ export default function Hero() {
                 {/* стрелка вниз */}
                 <button
                         onClick={() => scrollToSection("about")}
-                        className="absolute bottom-3 xs:bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/30 backdrop-blur-sm text-white rounded-full w-10 h-10 xs:w-12 xs:h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 flex items-center justify-center shadow-lg hover:bg-black/40 transition-all duration-300 cursor-pointer group z-30"
+                        className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 backdrop-blur-sm text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:bg-black/40 hover:scale-110 transition-all duration-300 cursor-pointer z-50 border border-white/20 hover:border-white/40"
                 >
-                    <div className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl group-hover:translate-y-1 transition-transform duration-300">
+                    <div className="text-2xl sm:text-3xl md:text-4xl hover:translate-y-1 transition-transform duration-300">
                         <IoIosArrowDown />
                     </div>
                 </button>

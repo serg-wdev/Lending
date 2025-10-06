@@ -29,23 +29,23 @@ export default function About() {
                         
                         <div className="w-full lg:w-1/2 order-1 lg:order-2">
                             <div className="space-y-4 sm:space-y-5 md:space-y-6">
-                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left">
+                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-justify">
                                     At Cornerstone Renovation, we believe that every home deserves to be built on a solid foundation — both in structure and in values. Just as Christ is the Cornerstone of our faith, we strive to make honesty, integrity, and respect the cornerstones of our work.
                                 </p>
                                 
-                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left">
+                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-justify">
                                     We are a family-owned remodeling company serving Lakeville, Apple Valley, Burnsville, Eagan, Farmington, Savage, Prior Lake, Shakopee, Bloomington, Rosemount, Inver Grove Heights, Edina, Richfield, and surrounding areas of Minnesota.
                                 </p>
                                 
-                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left">
+                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-justify">
                                     For us, renovation is more than just construction — it is about creating warm, lasting spaces where families can thrive, grow, and make memories together.
                                 </p>
                                 
-                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left">
+                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-justify">
                                     With every project, whether it's a kitchen remodel, bathroom renovation, siding repair, deck restoration, cabinet refinishing, or handyman services, we bring a commitment to excellence and detail.
                                 </p>
                                 
-                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-center lg:text-left font-medium">
+                                <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed text-justify font-medium">
                                     We stand by the words: <span className="text-blue-600">"Renovation You Can Trust."</span>
                                 </p>
                             </div>
