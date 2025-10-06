@@ -4,62 +4,10 @@ import React, { useEffect, useState } from 'react'
 import { FaPhone, FaMapMarkerAlt, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
 
 export default function Header() {
-    // состояние для отслеживания скролла
-    const [scrolled, setScrolled] = useState(false);
-    
-    // Лог для отладки состояния scrolled
-    useEffect(() => {
-        console.log('Scrolled state changed to:', scrolled);
-    }, [scrolled]);
     // состояние для мобильного меню
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     // состояние для уведомления о копировании email
     const [showEmailNotification, setShowEmailNotification] = useState(false);
-
-    useEffect(() => {
-        let ticking = false;
-        
-        const handleScroll = () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                    console.log('Scroll detected:', scrollY); // Для отладки
-                    if (scrollY > 50) {
-                        console.log('Setting scrolled to true'); // Для отладки
-                        setScrolled(true);
-                    } else {
-                        console.log('Setting scrolled to false'); // Для отладки
-                        setScrolled(false);
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        };
-
-        // Принудительно проверяем начальное состояние
-        console.log('Initial scroll check'); // Для отладки
-        handleScroll();
-
-        // Добавляем обработчик с passive: false для лучшей совместимости
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        
-        // Также добавляем обработчик для touch событий на мобильных
-        window.addEventListener("touchmove", handleScroll, { passive: true });
-        
-        // Добавляем обработчик для wheel событий
-        window.addEventListener("wheel", handleScroll, { passive: true });
-        
-        // Добавляем обработчик для resize событий (может влиять на скролл)
-        window.addEventListener("resize", handleScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("touchmove", handleScroll);
-            window.removeEventListener("wheel", handleScroll);
-            window.removeEventListener("resize", handleScroll);
-        };
-    }, []);
 
     // Блокируем скролл когда мобильное меню открыто
     useEffect(() => {
@@ -104,16 +52,6 @@ export default function Header() {
                     top: elementTop,
                     behavior: 'smooth'
                 });
-                
-                // Принудительно обновляем состояние скролла после скролла
-                setTimeout(() => {
-                    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-                    if (scrollY > 50) {
-                        setScrolled(true);
-                    } else {
-                        setScrolled(false);
-                    }
-                }, 100);
             }, 100);
         }
     };
@@ -135,9 +73,7 @@ export default function Header() {
     };
 
     return (
-        <header className={`fixed top-0 left-0 z-20 w-full px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3 transition-colors duration-300 ${
-            scrolled ? "bg-black/70 backdrop-blur-sm shadow-md text-gray-300" : "bg-transparent text-white"
-        }`}>
+        <header className="fixed top-0 left-0 z-20 w-full px-3 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-3 bg-black/70 backdrop-blur-sm shadow-md text-gray-300 transition-colors duration-300">
             <div className='flex justify-between items-center max-w-7xl mx-auto'>
                 <h2 className='font-bold text-base sm:text-base md:text-lg lg:text-xl'>
                     <button 
@@ -148,9 +84,7 @@ export default function Header() {
                     </button>
                     <button 
                         onClick={scrollToTop}
-                        className={`sm:hidden bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent drop-shadow-2xl font-extrabold tracking-wide hover:from-gray-100 hover:via-gray-200 hover:to-gray-300 transition-all duration-300 cursor-pointer ${
-                            scrolled ? 'opacity-100' : 'opacity-0'
-                        }`}
+                        className="sm:hidden bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent drop-shadow-2xl font-extrabold tracking-wide hover:from-gray-100 hover:via-gray-200 hover:to-gray-300 transition-all duration-300 cursor-pointer opacity-100"
                     >
                         Cornerstone Renovation
                     </button>
