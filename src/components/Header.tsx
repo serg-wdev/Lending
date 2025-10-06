@@ -1,11 +1,13 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
+import { FaPhone, FaMapMarkerAlt, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa'
 
 export default function Header() {
     // состояние для отслеживания скролла
     const [scrolled, setScrolled] = useState(false);
+    // состояние для мобильного меню
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,12 +25,36 @@ export default function Header() {
         };
     }, []);
 
+    // Блокируем скролл когда мобильное меню открыто
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        // Очищаем стили при размонтировании компонента
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMobileMenuOpen]);
+
     // функция для скролла наверх
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+        setIsMobileMenuOpen(false);
+    };
+
+    // функция для скролла к секциям
+    const scrollToSection = (id: string) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
+        setIsMobileMenuOpen(false);
     };
 
     return (
@@ -114,8 +140,71 @@ export default function Header() {
                         <FaPhone size={12} />
                         <span className="hidden xs:inline">Call</span>
                     </a>
+                    
+                    {/* Burger Menu Button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="ml-2 p-2 hover:text-blue-400 transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        {isMobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+                    </button>
                 </div>
             </div>
+
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden fixed inset-0 bg-black/80 backdrop-blur-md z-50">
+                    {/* Close button */}
+                    <button
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="absolute top-4 right-4 p-3 text-white hover:text-blue-400 transition-colors"
+                        aria-label="Close menu"
+                    >
+                        <FaTimes size={24} />
+                    </button>
+                    
+                    <div className="flex flex-col justify-center items-center h-full px-8 space-y-8">
+                        <button
+                            onClick={() => scrollToSection("about")}
+                            className="text-white text-2xl font-semibold hover:text-blue-400 transition-colors py-4"
+                        >
+                            About Us
+                        </button>
+                        <button
+                            onClick={() => scrollToSection("services")}
+                            className="text-white text-2xl font-semibold hover:text-blue-400 transition-colors py-4"
+                        >
+                            Services
+                        </button>
+                        <button
+                            onClick={() => scrollToSection("contact-form")}
+                            className="text-white text-2xl font-semibold hover:text-blue-400 transition-colors py-4"
+                        >
+                            Contact
+                        </button>
+                        
+                        <div className="border-t border-gray-600 pt-8 mt-8 w-full max-w-xs">
+                            <div className="space-y-6">
+                                <a 
+                                    href="tel:+19524658195" 
+                                    className="flex items-center justify-center gap-3 text-white hover:text-blue-400 transition-colors py-3 text-lg"
+                                >
+                                    <FaPhone size={20} />
+                                    (952) 465-8195
+                                </a>
+                                <a 
+                                    href="mailto:cornerstone_renovation@outlook.com" 
+                                    className="flex items-center justify-center gap-3 text-white hover:text-blue-400 transition-colors py-3 text-lg"
+                                >
+                                    <FaEnvelope size={20} />
+                                    Email Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </header>
     )
 }
