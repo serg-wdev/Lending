@@ -7,7 +7,7 @@ export default function Services() {
     const services = [
         {
             title: "Painting Services",
-            icon: <FaPaintBrush size={50} />,
+            icon: <FaPaintBrush size={40} />,
             color: "from-blue-500 to-blue-700",
             bgColor: "from-blue-50 to-blue-100",
             description: "Professional painting services for both interior and exterior spaces with premium quality materials and expert craftsmanship.",
@@ -24,7 +24,7 @@ export default function Services() {
         },
         {
             title: "Home Renovation",
-            icon: <FaHome size={50} />,
+            icon: <FaHome size={40} />,
             color: "from-green-500 to-green-700",
             bgColor: "from-green-50 to-green-100",
             description: "Complete home transformation services from kitchen remodels to basement finishing with attention to every detail.",
@@ -41,7 +41,7 @@ export default function Services() {
         },
         {
             title: "Exterior Services",
-            icon: <FaHammer size={50} />,
+            icon: <FaHammer size={40} />,
             color: "from-orange-500 to-orange-700",
             bgColor: "from-orange-50 to-orange-100",
             description: "Comprehensive exterior maintenance and improvement services to protect and enhance your home's curb appeal.",
@@ -58,7 +58,7 @@ export default function Services() {
         },
         {
             title: "Handyman Services",
-            icon: <FaTools size={50} />,
+            icon: <FaTools size={40} />,
             color: "from-purple-500 to-purple-700",
             bgColor: "from-purple-50 to-purple-100",
             description: "Reliable handyman services for all your home maintenance needs with quick response and quality workmanship.",
@@ -84,7 +84,7 @@ export default function Services() {
                     }}
             >
                 {/* полупрозрачная подложка */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/80 to-white/75 backdrop-blur-[2px]" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/85 to-white/80" />
 
                 <div className="relative container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 z-10 max-w-7xl">
                     {/* Заголовок */}
@@ -102,7 +102,7 @@ export default function Services() {
                     {/* Адаптивная сетка услуг */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 xl:grid-rows-2 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-12 max-w-7xl mx-auto">
                         {services.map((service, index) => (
-                                <div key={index} className='flex flex-col items-center bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-5 md:p-6 lg:p-5 xl:p-6 shadow-xl border border-white/30'>
+                                <div key={index} className='flex flex-col items-center bg-white/95 rounded-2xl p-4 sm:p-5 md:p-6 lg:p-5 xl:p-6 shadow-lg border border-white/20'>
                                     
             
                                     
