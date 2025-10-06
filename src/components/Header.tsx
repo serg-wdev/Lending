@@ -21,15 +21,26 @@ export default function Header() {
             }
         };
 
+        // Принудительно проверяем начальное состояние
+        handleScroll();
+
         // Добавляем обработчик с passive: false для лучшей совместимости
         window.addEventListener("scroll", handleScroll, { passive: true });
         
         // Также добавляем обработчик для touch событий на мобильных
         window.addEventListener("touchmove", handleScroll, { passive: true });
+        
+        // Добавляем обработчик для wheel событий
+        window.addEventListener("wheel", handleScroll, { passive: true });
+        
+        // Добавляем обработчик для resize событий (может влиять на скролл)
+        window.addEventListener("resize", handleScroll, { passive: true });
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("touchmove", handleScroll);
+            window.removeEventListener("wheel", handleScroll);
+            window.removeEventListener("resize", handleScroll);
         };
     }, []);
 
@@ -76,6 +87,16 @@ export default function Header() {
                     top: elementTop,
                     behavior: 'smooth'
                 });
+                
+                // Принудительно обновляем состояние скролла после скролла
+                setTimeout(() => {
+                    const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollY > 50) {
+                        setScrolled(true);
+                    } else {
+                        setScrolled(false);
+                    }
+                }, 100);
             }, 100);
         }
     };
