@@ -20,6 +20,12 @@ export default function ContactForm() {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    // Функция для автоматического изменения высоты textarea
+    const autoResizeTextarea = (textarea: HTMLTextAreaElement) => {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    };
+
     // Предотвращаем горизонтальный скролл на iOS при фокусе на поля
     useEffect(() => {
         const preventHorizontalScroll = () => {
@@ -76,6 +82,11 @@ export default function ContactForm() {
                 ...prev,
                 [name]: value
             }));
+        }
+
+        // Автоматически изменяем высоту textarea
+        if (name === 'message' && e.target instanceof HTMLTextAreaElement) {
+            autoResizeTextarea(e.target);
         }
     };
 
@@ -175,7 +186,7 @@ export default function ContactForm() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-sm sm:text-base"
+                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-base"
                                     placeholder="Your full name"
                                 />
                             </div>
@@ -191,7 +202,7 @@ export default function ContactForm() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-sm sm:text-base"
+                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-base"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
@@ -206,7 +217,7 @@ export default function ContactForm() {
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-sm sm:text-base"
+                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-base"
                                     placeholder="(555) 123-4567"
                                 />
                             </div>
@@ -221,8 +232,9 @@ export default function ContactForm() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={4}
-                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent resize-vertical text-sm sm:text-base"
+                                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md sm:focus:ring-2 sm:focus:ring-blue-500 sm:focus:border-transparent text-base resize-none overflow-hidden"
                                     placeholder="Tell us about your renovation project..."
+                                    style={{ minHeight: '100px' }}
                                 />
                             </div>
 
