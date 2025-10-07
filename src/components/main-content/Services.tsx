@@ -86,7 +86,7 @@ export default function Services() {
                 {/* полупрозрачная подложка */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/85 to-white/80" />
 
-                <div className="relative container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 z-10 max-w-7xl">
+                <div className="relative container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 z-10 max-w-7xl">
                     {/* Заголовок */}
                     <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
                         <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6">
@@ -102,13 +102,13 @@ export default function Services() {
                     {/* Адаптивная сетка услуг */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 xl:grid-rows-2 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-12 max-w-7xl mx-auto">
                         {services.map((service, index) => (
-                            <div key={index} className='relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-130'>
+                            <div key={index} className='relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-full'>
                                 {/* Градиентный заголовок */}
-                                <div className={`bg-gradient-to-r ${service.color} p-6 text-center relative`}>
+                                <div className={`bg-gradient-to-r ${service.color} p-4 sm:p-6 text-center relative`}>
                                     <div className="absolute inset-0 bg-black/10"></div>
                                     <div className="relative z-10">
-                                        <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
-                                            <div className="text-white text-2xl">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full mb-3 sm:mb-4">
+                                            <div className="text-white text-lg sm:text-2xl">
                                                 {service.icon}
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@ export default function Services() {
                                 </div>
                                 
                                 {/* Контент */}
-                                <div className="p-6 flex-1 flex flex-col">
+                                <div className="p-4 sm:p-6 flex-1 flex flex-col">
                                     {/* Описание */}
                                     <p className="text-gray-600 text-sm leading-relaxed text-center mb-6">
                                         {service.description}
