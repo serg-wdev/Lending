@@ -90,8 +90,8 @@ export default function Services() {
                     {/* Заголовок */}
                     <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
                         <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6">
-                            <span className="block sm:inline">Our</span>
-                            <span className="block sm:inline sm:ml-2">Services</span>
+                            {/* <span className="block sm:inline">Our</span> */}
+                            <p className="block sm:inline sm:ml-2">Our Services</p>
                         </h2>
                         <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-blue-600 mx-auto rounded-full mb-3 sm:mb-4" />
                         <p className="text-gray-700 max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl">
@@ -102,30 +102,48 @@ export default function Services() {
                     {/* Адаптивная сетка услуг */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 xl:grid-rows-2 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-12 max-w-7xl mx-auto">
                         {services.map((service, index) => (
-                                <div key={index} className='flex flex-col items-center bg-white/95 rounded-2xl p-4 sm:p-5 md:p-6 lg:p-5 xl:p-6 shadow-lg border border-white/20'>
-                                    
-            
-                                    
-                                    
-                                    {/* Заголовок */}
-                                    <h3 className="text-xl xs:text-2xl sm:text-3xl md:text-2xl lg:text-xl xl:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 text-center">
-                                        {service.title}
-                                    </h3>
-                                    
+                            <div key={index} className='relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-130'>
+                                {/* Градиентный заголовок */}
+                                <div className={`bg-gradient-to-r ${service.color} p-6 text-center relative`}>
+                                    <div className="absolute inset-0 bg-black/10"></div>
+                                    <div className="relative z-10">
+                                        <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
+                                            <div className="text-white text-2xl">
+                                                {service.icon}
+                                            </div>
+                                        </div>
+                                        <h3 className="text-xl font-bold text-white mb-2">
+                                            {service.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                                
+                                {/* Контент */}
+                                <div className="p-6 flex-1 flex flex-col">
                                     {/* Описание */}
-                                    <p className="text-gray-600 text-sm sm:text-base md:text-sm lg:text-xs xl:text-sm leading-relaxed text-center mb-4 sm:mb-6">
+                                    <p className="text-gray-600 text-sm leading-relaxed text-center mb-6">
                                         {service.description}
                                     </p>
                                     
                                     {/* Список услуг */}
-                                    <ul className="space-y-2 sm:space-y-3 text-gray-700 text-center w-full flex-1">
-                                        {service.items.map((item, idx) => (
-                                                <li key={idx} className="text-sm xs:text-base sm:text-lg md:text-base lg:text-sm xl:text-base">
-                                                    <span className="leading-relaxed font-medium">{item}</span>
+                                    <div className="flex-1">
+                                        <h4 className="text-sm font-semibold text-gray-800 mb-4 text-center uppercase tracking-wide">
+                                            What We Offer
+                                        </h4>
+                                        <ul className="space-y-3">
+                                            {service.items.map((item, idx) => (
+                                                <li key={idx} className="flex items-start">
+                                                    <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                                                    <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
                                                 </li>
-                                        ))}
-                                    </ul>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                    
+                                    {/* Декоративная полоса */}
+                                    <div className={`mt-6 h-1 bg-gradient-to-r ${service.color} rounded-full`}></div>
                                 </div>
+                            </div>
                         ))}
                     </div>
                 </div>
