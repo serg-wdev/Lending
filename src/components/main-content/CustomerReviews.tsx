@@ -1,4 +1,7 @@
-import React, {JSX} from "react";
+'use client'
+
+import React, {JSX, useState} from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 // types.ts (можно создать отдельный файл для типов)
 export interface Reviews {
@@ -42,6 +45,12 @@ const REVIEWS: Reviews[] = [
 ];
 
 export default function Testimonials(): JSX.Element {
+    const [showAllReviews, setShowAllReviews] = useState(false);
+    
+    // Показываем только 2 отзыва на мобильных устройствах, если не нажата кнопка "Показать больше"
+    // На планшетах и ПК всегда показываем все отзывы
+    const visibleReviews = showAllReviews ? REVIEWS : REVIEWS.slice(0, 2);
+    
     return (
             <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-white">
                 <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl">
@@ -53,7 +62,8 @@ export default function Testimonials(): JSX.Element {
                         {/* <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-black mx-auto"></div> */}
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+                    {/* Все отзывы для планшетов и ПК */}
+                    <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                         {REVIEWS.map((t: Reviews) => (
                                 <div key={t.id} className="bg-gray-50 p-4 sm:p-6 md:p-8 rounded-xl">
                                     <div className="flex items-center mb-4 sm:mb-6">
@@ -72,6 +82,40 @@ export default function Testimonials(): JSX.Element {
                                     </p>
                                 </div>
                         ))}
+                    </div>
+                    
+                    {/* Ограниченные отзывы для мобильных устройств */}
+                    <div className="grid grid-cols-1 gap-4 sm:hidden">
+                        {visibleReviews.map((t: Reviews) => (
+                                <div key={t.id} className="bg-gray-50 p-4 sm:p-6 md:p-8 rounded-xl">
+                                    <div className="flex items-center mb-4 sm:mb-6">
+                                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3 sm:mr-4 bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm sm:text-base">
+                                            {t.name.charAt(0)}
+                                        </div>
+                                        <div className="min-w-0 flex-1">
+                                            <h4 className="font-semibold text-gray-900 text-sm sm:text-base truncate">{t.name}</h4>
+                                            <p className="text-gray-600 text-xs sm:text-sm">{t.role}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <p className="text-gray-700 italic text-xs sm:text-sm md:text-base leading-relaxed">
+                                        "{t.text}"
+                                    </p>
+                                </div>
+                        ))}
+                    </div>
+                    
+                    {/* Прозрачная кнопка со стрелкой только на мобильных устройствах */}
+                    <div className="flex justify-center mt-6 sm:hidden">
+                        <button
+                            onClick={() => setShowAllReviews(!showAllReviews)}
+                            className="flex items-center justify-center bg-transparent text-gray-600 rounded-full w-12 h-12 hover:text-gray-800 hover:scale-110 transition-all duration-200"
+                        >
+                            <div className={`text-2xl transition-transform duration-300 ${showAllReviews ? 'rotate-180' : ''}`}>
+                                <IoIosArrowDown />
+                            </div>
+                        </button>
                     </div>
                 </div>
             </section>

@@ -103,16 +103,15 @@ export default function Services() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 xl:grid-rows-2 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-12 max-w-7xl mx-auto">
                         {services.map((service, index) => (
                             <div key={index} className='relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-full'>
-                                {/* Градиентный заголовок */}
-                                <div className={`bg-gradient-to-r ${service.color} p-4 sm:p-6 text-center relative`}>
-                                    <div className="absolute inset-0 bg-black/10"></div>
+                                {/* Серый заголовок с разноцветным кругом */}
+                                <div className="bg-gradient-to-r from-gray-100 to-gray-200 p-4 sm:p-6 text-center relative">
                                     <div className="relative z-10">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full mb-3 sm:mb-4">
+                                        <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${service.color} rounded-full mb-3 sm:mb-4 shadow-lg`}>
                                             <div className="text-white text-lg sm:text-2xl">
                                                 {service.icon}
                                             </div>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-2">
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2">
                                             {service.title}
                                         </h3>
                                     </div>
@@ -127,21 +126,21 @@ export default function Services() {
                                     
                                     {/* Список услуг */}
                                     <div className="flex-1">
-                                        <h4 className="text-sm font-semibold text-gray-800 mb-4 text-center uppercase tracking-wide">
-                                            What We Offer
+                                        <h4 className="text-sm font-bold text-gray-800 mb-4 text-center border-b border-gray-200 pb-2">
+                                            Services Included
                                         </h4>
-                                        <ul className="space-y-3">
+                                        <ul className="space-y-2">
                                             {service.items.map((item, idx) => (
-                                                <li key={idx} className="flex items-start">
-                                                    <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
-                                                    <span className="text-sm text-gray-700 leading-relaxed">{item}</span>
+                                                <li key={idx} className="flex items-center">
+                                                    <div className="flex-shrink-0 w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></div>
+                                                    <span className="text-sm text-gray-600 leading-relaxed font-medium">{item}</span>
                                                 </li>
                                             ))}
                                         </ul>
                                     </div>
                                     
                                     {/* Декоративная полоса */}
-                                    <div className={`mt-6 h-1 bg-gradient-to-r ${service.color} rounded-full`}></div>
+                                    <div className="mt-6 h-1 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full"></div>
                                 </div>
                             </div>
                         ))}
