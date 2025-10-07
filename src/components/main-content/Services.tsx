@@ -100,7 +100,7 @@ export default function Services() {
                     </div>
 
                     {/* Адаптивная сетка услуг */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-2 xl:grid-rows-2 gap-6 sm:gap-8 md:gap-10 lg:gap-8 xl:gap-12 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-10 max-w-4xl mx-auto">
                         {services.map((service, index) => (
                             <div key={index} className='relative flex flex-col bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden w-full'>
                                 {/* Серый заголовок с разноцветным кругом */}
@@ -126,14 +126,14 @@ export default function Services() {
                                     
                                     {/* Список услуг */}
                                     <div className="flex-1">
-                                        <h4 className="text-sm font-bold text-gray-800 mb-4 text-center border-b border-gray-200 pb-2">
+                                        <h4 className="text-base font-bold text-gray-800 mb-6 text-center border-b border-gray-200 pb-2">
                                             Services Included
                                         </h4>
-                                        <ul className="space-y-2">
+                                        <ul className="space-y-3">
                                             {service.items.map((item, idx) => (
                                                 <li key={idx} className="flex items-center">
-                                                    <div className="flex-shrink-0 w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></div>
-                                                    <span className="text-sm text-gray-600 leading-relaxed font-medium">{item}</span>
+                                                    <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mr-4"></div>
+                                                    <span className="text-base text-gray-600 leading-relaxed font-medium">{item}</span>
                                                 </li>
                                             ))}
                                         </ul>
