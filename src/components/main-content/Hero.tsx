@@ -27,10 +27,10 @@ export default function Hero() {
                     Renovation You Can Trust
                 </p>
 
-                <div className="flex justify-center w-full relative z-30">
+                <div className="flex justify-center w-full relative z-30 mt-3 sm:mt-0">
                     <a
                         href="#contact-form"
-                        className="bg-orange-400 text-white rounded-lg px-4 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-orange-500 transition-colors duration-300 w-1/2 sm:w-auto min-w-[120px] sm:min-w-[200px] font-semibold shadow-lg cursor-pointer relative z-40 text-center"
+                        className="bg-orange-400 text-white rounded-lg px-4 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-orange-500 transition-colors duration-300 w-4/5 sm:w-auto min-w-[120px] sm:min-w-[200px] font-semibold shadow-lg cursor-pointer relative z-40 text-center"
                     >
                         Free Estimate
                     </a>
@@ -40,7 +40,7 @@ export default function Hero() {
             {/* стрелка вниз */}
             <a
                 href="#about"
-                className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer z-50 border-2 border-white/40 hover:border-white/60"
+                className="absolute bottom-10 sm:bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer z-50 border-2 border-white/40 hover:border-white/60"
             >
                 <div className="text-2xl sm:text-3xl md:text-4xl hover:translate-y-1 transition-transform duration-300">
                     <IoIosArrowDown />
