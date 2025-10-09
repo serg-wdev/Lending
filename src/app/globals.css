@@ -30,6 +30,18 @@
 
 html, body {
     height: 100%;
+    scroll-behavior: smooth;
+}
+
+/* Настройка для якорных ссылок */
+html {
+    scroll-padding-top: 80px;
+}
+
+@media (min-width: 768px) {
+    html {
+        scroll-padding-top: 100px;
+    }
 }
 
 body {
