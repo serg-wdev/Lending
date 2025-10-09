@@ -194,7 +194,7 @@ export default function ContactForm() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full bg-blue-600 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-md hover:bg-blue-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm sm:text-base"
+                                className="w-full bg-orange-400 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-md hover:bg-orange-500 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm sm:text-base"
                             >
                                 {isSubmitting ? 'Sending...' : 'Get Free Estimate'}
                             </button>
