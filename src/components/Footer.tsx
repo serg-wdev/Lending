@@ -1,7 +1,8 @@
 'use client'
 
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BsFillHouseFill } from "react-icons/bs";
 
 export default function Footer() {
     return (
@@ -11,7 +12,7 @@ export default function Footer() {
 
                         {/* Company Info - Left */}
                         <div className="w-full lg:w-auto lg:text-left text-center">
-                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">
+                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-orange-400 mb-2 sm:mb-3">
                                 <span className="block sm:inline">Cornerstone</span>
                                 <span className="block sm:inline sm:ml-1">Renovation LLC</span>
                             </h3>
@@ -22,7 +23,7 @@ export default function Footer() {
 
                         {/* Contact Info - Center */}
                         <div className="w-full lg:w-auto lg:text-center text-center">
-                            <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base md:text-lg">Contact</h4>
+                            <h4 className="font-semibold text-orange-400 mb-2 sm:mb-3 text-sm sm:text-base md:text-lg">Contacts</h4>
                             <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm">
                                 <p>
                                     <span className="block sm:inline">Email: </span>
@@ -44,17 +45,14 @@ export default function Footer() {
 
                         {/* Links & Socials - Right */}
                         <div className="w-full lg:w-auto lg:text-right text-center">
-                            <h4 className="font-semibold text-white mb-2 sm:mb-3 text-sm sm:text-base md:text-lg">Follow Us</h4>
+                            <h4 className="font-semibold text-orange-400 mb-2 sm:mb-3 text-sm sm:text-base md:text-lg">Follow Us</h4>
                             
-                            <div className="flex justify-center lg:justify-end gap-3 sm:gap-4 mb-3 sm:mb-4">
-                                <a href="#" aria-label="Follow us on Facebook" className="hover:text-white transition-colors transform hover:scale-110">
-                                    <FaFacebook size={18} />
+                            <div className="flex justify-center lg:justify-around gap-3 sm:gap-4 mb-3 sm:mb-4">
+                                <a href="https://www.instagram.com/cornerstone_renovation_mn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-pink-500 transition-colors transform hover:scale-110">
+                                    <FaInstagram size={28} className="text-pink-500" />
                                 </a>
-                                <a href="#" aria-label="Follow us on Instagram" className="hover:text-white transition-colors transform hover:scale-110">
-                                    <FaInstagram size={18} />
-                                </a>
-                                <a href="#" aria-label="Connect with us on LinkedIn" className="hover:text-white transition-colors transform hover:scale-110">
-                                    <FaLinkedin size={18} />
+                                <a href="https://nextdoor.com/pages/cornerstone-renovation-llc-burnsville-mn" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor" className="hover:text-green-500 transition-colors transform hover:scale-110">
+                                    <BsFillHouseFill size={28} className="scale-x-[-1] text-green-500" />
                                 </a>
                             </div>
                             

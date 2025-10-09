@@ -8,8 +8,8 @@ export default function Services() {
         {
             title: "Painting Services",
             icon: <FaPaintBrush size={40} />,
-            color: "from-blue-500 to-blue-700",
-            bgColor: "from-blue-50 to-blue-100",
+            color: "from-orange-500 to-orange-700",
+            bgColor: "from-orange-50 to-orange-100",
             description: "Professional painting services for both interior and exterior spaces with premium quality materials and expert craftsmanship.",
             items: [
                 "Exterior house painting & staining",
@@ -25,8 +25,8 @@ export default function Services() {
         {
             title: "Home Renovation",
             icon: <FaHome size={40} />,
-            color: "from-green-500 to-green-700",
-            bgColor: "from-green-50 to-green-100",
+            color: "from-blue-500 to-blue-700",
+            bgColor: "from-blue-50 to-blue-100",
             description: "Complete home transformation services from kitchen remodels to basement finishing with attention to every detail.",
             items: [
                 "Kitchen remodeling & design",
@@ -59,8 +59,8 @@ export default function Services() {
         {
             title: "Handyman Services",
             icon: <FaTools size={40} />,
-            color: "from-purple-500 to-purple-700",
-            bgColor: "from-purple-50 to-purple-100",
+            color: "from-blue-500 to-blue-700",
+            bgColor: "from-blue-50 to-blue-100",
             description: "Reliable handyman services for all your home maintenance needs with quick response and quality workmanship.",
             items: [
                 "Faucet & lighting installation",

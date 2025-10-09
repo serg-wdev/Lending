@@ -18,7 +18,7 @@ export default function Hero() {
 
             {/* контент */}
             <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 relative z-20 flex flex-col justify-center items-center text-center min-h-screen max-w-7xl">
-                <h1 className="text-neutral-100 font-bold leading-tight mb-4 sm:mb-6 md:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+                <h1 className="text-neutral-100 font-bold leading-tight mb-4 sm:mb-6 md:mb-8 text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
                     <span className="block sm:inline">Cornerstone</span>
                     <span className="block sm:inline sm:ml-2">Renovation</span>
                 </h1>
@@ -30,7 +30,7 @@ export default function Hero() {
                 <div className="flex justify-center w-full relative z-30">
                     <a
                         href="#contact-form"
-                        className="bg-blue-600 text-neutral-200 rounded-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-blue-700 transition-colors duration-300 w-full sm:w-auto min-w-[200px] sm:min-w-[250px] font-semibold shadow-lg cursor-pointer relative z-40 text-center"
+                        className="bg-orange-400 text-white rounded-lg px-4 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-orange-500 transition-colors duration-300 w-1/2 sm:w-auto min-w-[120px] sm:min-w-[200px] font-semibold shadow-lg cursor-pointer relative z-40 text-center"
                     >
                         Free Estimate
                     </a>
@@ -40,7 +40,7 @@ export default function Hero() {
             {/* стрелка вниз */}
             <a
                 href="#about"
-                className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 backdrop-blur-sm text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:bg-black/40 hover:scale-110 transition-all duration-300 cursor-pointer z-50 border border-white/20 hover:border-white/40"
+                className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer z-50 border-2 border-white/40 hover:border-white/60"
             >
                 <div className="text-2xl sm:text-3xl md:text-4xl hover:translate-y-1 transition-transform duration-300">
                     <IoIosArrowDown />
