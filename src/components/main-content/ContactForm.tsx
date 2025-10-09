@@ -110,7 +110,7 @@ export default function ContactForm() {
     };
 
     return (
-        <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-50 overflow-x-hidden">
+        <section id="contact-form" className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24 bg-gray-50 overflow-x-hidden">
             <div className="container mx-auto px-2 xs:px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl overflow-x-hidden">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
                     <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6">
@@ -123,57 +123,10 @@ export default function ContactForm() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 max-w-6xl mx-auto">
-                    {/* Contact Information */}
-                    <div className="order-2 lg:order-1 space-y-6 sm:space-y-8">
-                        <div>
-                            <h3 className="text-xl xs:text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 text-center lg:text-left">Get in Touch</h3>
-                            <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 sm:mb-8 text-center lg:text-left">
-                                We're here to help bring your renovation dreams to life. Reach out to us using any of the methods below.
-                            </p>
-                        </div>
-
-                        <div className="space-y-4 sm:space-y-6">
-                            <div className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600">
-                                    <FaPhone size={16} />
-                                </div>
-                                <div className="text-center lg:text-left">
-                                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Phone</h4>
-                                    <a href="tel:+19524658195" className="text-gray-700 hover:text-blue-600 transition-colors text-sm sm:text-base">
-                                        (952) 465-8195
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600">
-                                    <FaEnvelope size={16} />
-                                </div>
-                                <div className="text-center lg:text-left min-w-0">
-                                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Email</h4>
-                                    <a href="mailto:cornerstone_renovation@outlook.com" className="text-gray-700 hover:text-blue-600 transition-colors text-xs xs:text-sm sm:text-base break-all">
-                                        cornerstone_renovation@outlook.com
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-3 sm:gap-4 justify-center lg:justify-start">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 text-blue-600">
-                                    <FaMapMarkerAlt size={16} />
-                                </div>
-                                <div className="text-center lg:text-left">
-                                    <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Service Area</h4>
-                                    <p className="text-gray-700 text-xs xs:text-sm sm:text-base">
-                                        Apple Valley, Lakeville, Burnsville, Eagan, and surrounding areas
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="flex justify-center max-w-2xl mx-auto">
 
                     {/* Contact Form */}
-                    <div className="order-1 lg:order-2 bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+                    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 w-full">
                         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">

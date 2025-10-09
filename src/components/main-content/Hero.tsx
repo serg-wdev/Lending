@@ -1,9 +1,24 @@
 'use client'
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function Hero() {
+    const [backgroundAttachment, setBackgroundAttachment] = useState<'fixed' | 'scroll'>('scroll');
+
+    useEffect(() => {
+        const updateBackgroundAttachment = () => {
+            setBackgroundAttachment(window.innerWidth > 768 ? 'fixed' : 'scroll');
+        };
+
+        updateBackgroundAttachment();
+        window.addEventListener('resize', updateBackgroundAttachment);
+
+        return () => {
+            window.removeEventListener('resize', updateBackgroundAttachment);
+        };
+    }, []);
+
     const scrollToSection = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
@@ -16,7 +31,7 @@ export default function Hero() {
                     className="relative z-0 w-full min-h-[100svh] bg-cover bg-center bg-no-repeat flex items-center justify-center"
                     style={{
                         backgroundImage: "url('/bg-image.jpeg')",
-                        backgroundAttachment: typeof window !== 'undefined' && window.innerWidth > 768 ? 'fixed' : 'scroll',
+                        backgroundAttachment: backgroundAttachment,
                         backgroundSize: 'cover',
                         WebkitBackgroundSize: 'cover',
                         MozBackgroundSize: 'cover',
@@ -37,19 +52,12 @@ export default function Hero() {
                         Renovation You Can Trust
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 items-center justify-center w-full max-w-lg sm:max-w-none">
-                        <button
-                                onClick={() => scrollToSection("services")}
-                                className="bg-blue-600 text-neutral-200 rounded-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 text-base sm:text-lg md:text-xl hover:bg-blue-700 transition-colors duration-300 w-full sm:w-auto min-w-[180px] sm:min-w-[200px] font-semibold"
-                        >
-                            Our Services
-                        </button>
-
+                    <div className="flex justify-center w-full">
                         <button
                                 onClick={() => scrollToSection("contact-form")}
-                                className="bg-transparent text-neutral-200 border-2 border-white rounded-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 text-base sm:text-lg md:text-xl hover:bg-white/20 transition-colors duration-300 w-full sm:w-auto min-w-[180px] sm:min-w-[200px] font-semibold"
+                                className="bg-blue-600 text-neutral-200 rounded-lg px-8 sm:px-10 md:px-12 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-blue-700 transition-colors duration-300 w-full sm:w-auto min-w-[200px] sm:min-w-[250px] font-semibold shadow-lg"
                         >
-                            Contact Us
+                            Free Estimate
                         </button>
                     </div>
                 </div>
