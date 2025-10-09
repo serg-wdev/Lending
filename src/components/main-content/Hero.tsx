@@ -40,7 +40,7 @@ export default function Hero() {
             {/* стрелка вниз */}
             <a
                 href="#about"
-                className="absolute bottom-10 sm:bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer z-50 border-2 border-white/40 hover:border-white/60"
+                className="absolute bottom-14 sm:bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer z-50 border-2 border-white/40 hover:border-white/60"
             >
                 <div className="text-2xl sm:text-3xl md:text-4xl hover:translate-y-1 transition-transform duration-300">
                     <IoIosArrowDown />
