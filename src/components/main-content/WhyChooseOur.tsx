@@ -36,11 +36,11 @@ export default function WhyChooseUs() {
                                         </div>
                                     </div>
                                     
-                                    <h3 className="text-lg xs:text-xl sm:text-2xl md:text-xl lg:text-lg xl:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                    <h3 className="text-lg xs:text-xl sm:text-2xl md:text-xl lg:text-lg xl:text-2xl font-bold text-[#063A55]/90 mb-3 sm:mb-4">
                                         {reason.title}
                                     </h3>
                                     
-                                    <p className="text-gray-700 text-sm sm:text-base md:text-sm lg:text-xs xl:text-sm leading-relaxed">
+                                    <p className="text-[#063A55]/70 text-sm sm:text-base md:text-sm lg:text-xs xl:text-sm leading-relaxed">
                                         {reason.desc}
                                     </p>
                                 </div>
