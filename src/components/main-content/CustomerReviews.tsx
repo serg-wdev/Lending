@@ -55,10 +55,10 @@ export default function Testimonials(): JSX.Element {
             <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-white">
                 <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl">
                     <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-                        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-3 sm:mb-4 md:mb-6">
+                        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6">
                             What Our Clients Say
                         </h2>
-                        <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-3 sm:mb-4"></div>
+                        <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-[#063A55]/70 mx-auto rounded-full mb-3 sm:mb-4"></div>
                         {/* <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-black mx-auto"></div> */}
                     </div>
 

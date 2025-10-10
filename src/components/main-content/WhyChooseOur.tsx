@@ -14,15 +14,15 @@ const reasons = [
 
 export default function WhyChooseUs() {
     return (
-            <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-50 min-h-screen sm:min-h-0">
+            <section className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-[#063A55]/80 backdrop-blur-md min-h-screen sm:min-h-0">
                 <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl">
                     <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-                        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 sm:mb-4 md:mb-6">
+                        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 sm:mb-4 md:mb-6">
                             <span className="block sm:inline">Why Choose</span>
                             <span className="block sm:inline sm:ml-2">Cornerstone Renovation</span>
                         </h2>
-                        <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-3 sm:mb-4"></div>
-                        <p className="text-gray-700 max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl">
+                        <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-gradient-to-r from-orange-400 to-orange-500 mx-auto rounded-full mb-3 sm:mb-4"></div>
+                        <p className="text-gray-200 max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl">
                             Experience the difference that trust, quality, and family values bring to your home renovation project.
                         </p>
                     </div>
