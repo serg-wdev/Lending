@@ -111,7 +111,7 @@ export default function Services() {
                                                 {service.icon}
                                             </div>
                                         </div>
-                                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                                        <h3 className="text-xl font-bold text-[#063A55]/90 mb-2">
                                             {service.title}
                                         </h3>
                                     </div>
@@ -120,20 +120,20 @@ export default function Services() {
                                 {/* Контент */}
                                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
                                     {/* Описание */}
-                                    <p className="text-gray-600 text-sm leading-relaxed text-center mb-6">
+                                    {/* <p className="text-gray-600 text-sm leading-relaxed text-center mb-6">
                                         {service.description}
-                                    </p>
+                                    </p> */}
                                     
                                     {/* Список услуг */}
                                     <div className="flex-1">
-                                        <h4 className="text-base font-bold text-gray-800 mb-6 text-center border-b border-gray-200 pb-2">
+                                        {/* <h4 className="text-base font-bold text-gray-800 mb-6 text-center border-b border-gray-200 pb-2">
                                             Services Included
-                                        </h4>
+                                        </h4> */}
                                         <ul className="space-y-3">
                                             {service.items.map((item, idx) => (
                                                 <li key={idx} className="flex items-center">
                                                     <div className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mr-4"></div>
-                                                    <span className="text-base text-gray-600 leading-relaxed font-medium">{item}</span>
+                                                    <span className="text-base text-[#063A55]/80 leading-relaxed font-medium">{item}</span>
                                                 </li>
                                             ))}
                                         </ul>

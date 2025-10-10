@@ -9,7 +9,7 @@ export default function About() {
             <section id="about" className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 bg-white min-h-screen">
                 <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl">
                     <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-                        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6">
+                        <h2 id="about-title" className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6">
                             <span className="block sm:inline">About</span>
                             <span className="block sm:inline sm:ml-2">Cornerstone Renovation</span>
                         </h2>
