@@ -7,12 +7,12 @@ export default function MapIframe(): JSX.Element {
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-[#063A55]/90 mb-4">
                         Find Us
                     </h2>
-                    <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mb-3 sm:mb-4"></div>
+                    <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-[#063A55]/70 mx-auto rounded-full mb-3 sm:mb-4"></div>
                     {/* <div className="w-20 h-1 bg-black mx-auto mb-4"></div> */}
-                    <p className="text-gray-700 max-w-2xl mx-auto text-lg">
+                    <p className="text-[#063A55]/70 max-w-2xl mx-auto text-lg">
                         Located in Apple Valley, MN, serving the Twin Cities metro area
                     </p>
                 </div>
