@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
-import BurgerMenu from './BurgerMenu'
+import BurgerMenu from './ui/BurgerMenu'
 
 export default function Header() {
     // состояние для мобильного меню

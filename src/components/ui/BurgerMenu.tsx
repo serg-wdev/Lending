@@ -94,7 +94,7 @@ export default function BurgerMenu({ isOpen, onToggle, onClose }: BurgerMenuProp
                     
                     <div className="flex flex-col justify-center items-center h-full px-8 space-y-6">
                         <button
-                            onClick={() => scrollToSection("about")}
+                            onClick={() => scrollToSection("about-title")}
                             className="text-white text-xl font-semibold hover:text-orange-400 transition-colors py-3 px-4 rounded-md hover:bg-gray-800/50"
                         >
                             About Us
@@ -106,7 +106,7 @@ export default function BurgerMenu({ isOpen, onToggle, onClose }: BurgerMenuProp
                             Services
                         </button>
                         <button
-                            onClick={() => scrollToSection("contact-form")}
+                            onClick={() => scrollToSection("free-estimate-title")}
                             className="text-white text-xl font-semibold hover:text-orange-400 transition-colors py-3 px-4 rounded-md hover:bg-gray-800/50"
                         >
                             Free Estimate

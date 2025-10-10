@@ -19,6 +19,17 @@ export default function ContactForm() {
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showMessage, setShowMessage] = useState(false);
+    const [messageText, setMessageText] = useState('');
+
+    // Функция для показа сообщения
+    const showNotification = (text: string) => {
+        setMessageText(text);
+        setShowMessage(true);
+        setTimeout(() => {
+            setShowMessage(false);
+        }, 4000);
+    };
 
     // Функция для автоматического изменения высоты textarea
     const autoResizeTextarea = (textarea: HTMLTextAreaElement) => {
@@ -94,26 +105,46 @@ export default function ContactForm() {
         e.preventDefault();
         setIsSubmitting(true);
         
-        // Simulate form submission
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
-        // Reset form
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            message: ''
-        });
+        try {
+            const response = await fetch('https://formspree.io/f/xrbyyyld', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                    _subject: 'New Contact Form Submission - Cornerstone Renovation'
+                })
+            });
+
+            if (response.ok) {
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    message: ''
+                });
+                showNotification('Message sent! We\'ll contact you soon.');
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            showNotification('Error sending message. Please try again.');
+        }
         
         setIsSubmitting(false);
-        alert('Thank you for your message! We will get back to you soon.');
     };
 
     return (
         <section id="contact-form" className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24 bg-gray-50 overflow-x-hidden">
             <div className="container mx-auto px-2 xs:px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl overflow-x-hidden">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-                    <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6">
+                    <h2 id="free-estimate-title" className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6">
                         Get Your Free Estimate
                     </h2>
                     <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-[#063A55]/70 mx-auto rounded-full mb-3 sm:mb-4"></div>
@@ -124,6 +155,13 @@ export default function ContactForm() {
                 </div>
 
                 <div className="flex justify-center max-w-2xl mx-auto">
+
+                    {/* Всплывающее сообщение */}
+                    {showMessage && (
+                        <div className="fixed top-16 sm:top-20 left-1/2 transform -translate-x-1/2 z-50 bg-green-500 text-white px-3 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg animate-pulse text-sm sm:text-base mx-2 inline-block max-w-[95vw] sm:max-w-md">
+                            {messageText}
+                        </div>
+                    )}
 
                     {/* Contact Form */}
                     <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 w-full">

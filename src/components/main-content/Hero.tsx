@@ -29,7 +29,7 @@ export default function Hero() {
 
                 <div className="flex justify-center w-full relative z-30 mt-3 sm:mt-0">
                     <a
-                        href="#contact-form"
+                        href="#free-estimate-title"
                         className="bg-orange-400 text-white rounded-lg px-4 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-orange-500 transition-colors duration-300 w-4/5 sm:w-auto min-w-[120px] sm:min-w-[200px] font-semibold shadow-lg cursor-pointer relative z-40 text-center"
                     >
                         Free Estimate

@@ -28,7 +28,6 @@
 /*}*/
 
 html, body {
-    height: 100%;
     scroll-behavior: smooth;
 }
 
@@ -63,6 +62,12 @@ p, span, div, a, li, td, th, label, input, textarea, button {
 
 button {
     cursor: pointer;
+}
+
+/* Исправление для хедера поверх скроллбара */
+header {
+    width: 100vw;
+    box-sizing: border-box;
 }
 
 ul, ol, li {

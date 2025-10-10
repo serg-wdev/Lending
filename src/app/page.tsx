@@ -3,7 +3,7 @@ import './globals.css';
 import Header from "@/components/Header";
 import Main from "@/components/Main";
 import Footer from "@/components/Footer";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 
 export default function Home() {
   return (
