@@ -3,6 +3,7 @@ import './globals.css';
 import Header from "@/components/Header";
 import Main from "@/components/Main";
 import Footer from "@/components/Footer";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Header />
         <Main className='flex-1'/>
         <Footer />
+        <ScrollToTopButton />
     </div>
   );
 }

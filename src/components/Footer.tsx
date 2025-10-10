@@ -49,10 +49,10 @@ export default function Footer() {
                             
                             <div className="flex justify-center lg:justify-around gap-3 sm:gap-4 mb-3 sm:mb-4">
                                 <a href="https://www.instagram.com/cornerstone_renovation_mn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-pink-500 transition-colors transform hover:scale-110">
-                                    <FaInstagram size={28} className="text-pink-500" />
+                                    <FaInstagram size={28} className="text-pink-500/70" />
                                 </a>
                                 <a href="https://nextdoor.com/pages/cornerstone-renovation-llc-burnsville-mn" target="_blank" rel="noopener noreferrer" aria-label="Nextdoor" className="hover:text-green-500 transition-colors transform hover:scale-110">
-                                    <BsFillHouseFill size={28} className="scale-x-[-1] text-green-500" />
+                                    <BsFillHouseFill size={28} className="scale-x-[-1] text-green-500/70" />
                                 </a>
                             </div>
                             
