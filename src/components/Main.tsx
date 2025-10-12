@@ -16,7 +16,7 @@ export default function Main({ className }: MainProps) {
             <Hero/>
             <About/>
             <Services />
-            <WhyChooseUs/>
+            
             <CustomerReviews/>
             <ContactForm/>
             <MapIframe/>
