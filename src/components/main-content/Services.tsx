@@ -18,7 +18,7 @@ export default function Services() {
                 "Enamel & stain",
                 "Cabinet refinishing",
                 "Ceiling painting & texturing",
-                "Drywall installation]",
+                "Drywall installation",
                 
             ],
         },
