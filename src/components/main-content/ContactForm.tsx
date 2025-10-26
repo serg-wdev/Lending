@@ -141,10 +141,10 @@ export default function ContactForm() {
     };
 
     return (
-        <section id="contact-form" className="pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24 bg-gray-50 overflow-x-hidden">
+        <section id="contact-form" className="pt-16 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24 bg-gray-50 overflow-x-hidden scroll-mt-16">
             <div className="container mx-auto px-2 xs:px-3 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl overflow-x-hidden">
                 <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-                    <h2 id="free-estimate-title" className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6">
+                    <h2 id="free-estimate-title" className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#063A55]/90 mb-3 sm:mb-4 md:mb-6 scroll-mt-16 md:scroll-mt-20">
                         Get Your Free Estimate
                     </h2>
                     <div className="w-16 sm:w-20 md:w-24 lg:w-28 h-1 bg-[#063A55]/70 mx-auto rounded-full mb-3 sm:mb-4"></div>

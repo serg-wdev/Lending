@@ -4,6 +4,52 @@ import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 export default function Hero() {
+    // Универсальная функция плавного скролла
+    const smoothScrollTo = (targetId: string, offset: number = 80) => {
+        const el = document.getElementById(targetId);
+        if (el) {
+            const elementPosition = el.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            // Плавная анимация скролла для Safari
+            const startPosition = window.pageYOffset;
+            const distance = offsetPosition - startPosition;
+            const duration = 800; // 800ms
+            let startTime: number | null = null;
+
+            const animation = (currentTime: number) => {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            };
+
+            // Easing функция для плавности
+            const ease = (t: number, b: number, c: number, d: number) => {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            };
+
+            requestAnimationFrame(animation);
+        }
+    };
+
+    const scrollToEstimate = (e: React.MouseEvent) => {
+        e.preventDefault();
+        // На мобильных используем меньший offset
+        const isMobile = window.innerWidth < 768;
+        const offset = isMobile ? 60 : 80;
+        smoothScrollTo('free-estimate-title', offset);
+    };
+
+    const scrollToAbout = (e: React.MouseEvent) => {
+        e.preventDefault();
+        smoothScrollTo('about');
+    };
+
     return (
         <section
             className="relative z-0 w-full min-h-[100svh] bg-cover bg-center bg-no-repeat flex items-center justify-center"
@@ -28,24 +74,24 @@ export default function Hero() {
                 </p>
 
                 <div className="flex justify-center w-full relative z-30 mt-3 sm:mt-0">
-                    <a
-                        href="#free-estimate-title"
+                    <button
+                        onClick={scrollToEstimate}
                         className="bg-orange-400 text-white rounded-lg px-4 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-lg sm:text-xl md:text-2xl hover:bg-orange-500 transition-colors duration-300 w-4/5 sm:w-auto min-w-[120px] sm:min-w-[200px] font-semibold shadow-lg cursor-pointer relative z-40 text-center"
                     >
                         Free Estimate
-                    </a>
+                    </button>
                 </div>
             </div>
 
             {/* стрелка вниз */}
-            <a
-                href="#about"
+            <button
+                onClick={scrollToAbout}
                 className="absolute bottom-14 sm:bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 bg-black/20 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300 cursor-pointer z-50 border-2 border-white/40 hover:border-white/60"
             >
                 <div className="text-2xl sm:text-3xl md:text-4xl hover:translate-y-1 transition-transform duration-300">
                     <IoIosArrowDown />
                 </div>
-            </a>
+            </button>
         </section>
     );
 }

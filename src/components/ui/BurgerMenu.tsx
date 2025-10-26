@@ -44,11 +44,34 @@ export default function BurgerMenu({ isOpen, onToggle, onClose }: BurgerMenuProp
             
             // Небольшая задержка для закрытия меню перед скроллом
             setTimeout(() => {
-                const elementTop = el.offsetTop - 60; // Учитываем новую высоту header
-                window.scrollTo({
-                    top: elementTop,
-                    behavior: 'smooth'
-                });
+                const isMobile = window.innerWidth < 768;
+                const headerOffset = isMobile ? 60 : 80;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                // Плавная анимация скролла для Safari
+                const startPosition = window.pageYOffset;
+                const distance = offsetPosition - startPosition;
+                const duration = 800; // 800ms
+                let startTime: number | null = null;
+
+                const animation = (currentTime: number) => {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                };
+
+                // Easing функция для плавности
+                const ease = (t: number, b: number, c: number, d: number) => {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                };
+
+                requestAnimationFrame(animation);
             }, 100);
         }
     };
@@ -107,7 +130,7 @@ export default function BurgerMenu({ isOpen, onToggle, onClose }: BurgerMenuProp
                         </button>
                         <button
                             onClick={() => scrollToSection("free-estimate-title")}
-                            className="text-white text-xl font-semibold hover:text-orange-400 transition-colors py-3 px-4 rounded-md hover:bg-gray-800/50"
+                            className="text-orange-400 text-xl font-semibold hover:text-orange-300 transition-colors py-3 px-4 rounded-md hover:bg-gray-800/50"
                         >
                             Free Estimate
                         </button>

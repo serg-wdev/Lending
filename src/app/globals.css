@@ -27,14 +27,18 @@
 /*  font-family: Arial, Helvetica, sans-serif;*/
 /*}*/
 
-html, body {
+html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: 80px;
+}
+
+body {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Настройка для якорных ссылок */
-html {
-    scroll-padding-top: 80px;
-}
 
 @media (min-width: 768px) {
     html {

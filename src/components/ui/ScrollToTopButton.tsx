@@ -1,79 +1,58 @@
 'use client'
 
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
 
 export default function ScrollToTopButton() {
     const [isVisible, setIsVisible] = useState(false);
 
-    // Функция для скролла наверх
+    // Функция для плавного скролла наверх
     const scrollToTop = () => {
-        // Плавный скролл наверх - используем body
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+        const startPosition = window.pageYOffset;
+        const distance = -startPosition;
+        const duration = 800;
+        let startTime: number | null = null;
+
+        const animation = (currentTime: number) => {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        };
+
+        const ease = (t: number, b: number, c: number, d: number) => {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        };
+
+        requestAnimationFrame(animation);
     };
 
-    // Отслеживание скролла - с отладкой
+    // Отслеживание скролла
     useEffect(() => {
         const toggleVisibility = () => {
-            const scrollThreshold = 600;
-            
-            // Используем максимальное значение из разных источников
-            const scrollPosition = Math.max(
-                window.pageYOffset || 0,
-                document.documentElement.scrollTop || 0,
-                document.body.scrollTop || 0,
-                window.scrollY || 0
-            );
-            
-            // Отладочная информация
-            console.log('=== SCROLL DEBUG ===');
-            console.log('window.pageYOffset:', window.pageYOffset);
-            console.log('document.documentElement.scrollTop:', document.documentElement.scrollTop);
-            console.log('document.body.scrollTop:', document.body.scrollTop);
-            console.log('window.scrollY:', window.scrollY);
-            console.log('scrollPosition (max):', scrollPosition);
-            console.log('scrollThreshold:', scrollThreshold);
-            console.log('isVisible will be:', scrollPosition > scrollThreshold);
-            console.log('==================');
-            
-            if (scrollPosition > scrollThreshold) {
-                console.log('✅ Showing button');
+            if (window.pageYOffset > 600) {
                 setIsVisible(true);
             } else {
-                console.log('❌ Hiding button');
                 setIsVisible(false);
             }
         };
 
-        // Добавляем слушатели на разные элементы
         window.addEventListener('scroll', toggleVisibility);
-        document.addEventListener('scroll', toggleVisibility);
-        document.body.addEventListener('scroll', toggleVisibility);
-        document.documentElement.addEventListener('scroll', toggleVisibility);
-
-        // Проверяем при загрузке
         toggleVisibility();
 
-        // Очищаем слушатели при размонтировании
         return () => {
             window.removeEventListener('scroll', toggleVisibility);
-            document.removeEventListener('scroll', toggleVisibility);
-            document.body.removeEventListener('scroll', toggleVisibility);
-            document.documentElement.removeEventListener('scroll', toggleVisibility);
         };
     }, []);
 
-    // Отладочная информация о состоянии компонента
-    console.log('ScrollToTopButton render - isVisible:', isVisible);
-
-    // Показываем кнопку только если видима
     if (!isVisible) {
-        console.log('🚫 Button not visible, returning null');
         return null;
     }
 
-    console.log('✅ Button visible, rendering button');
     return (
         <button
             onClick={scrollToTop}
