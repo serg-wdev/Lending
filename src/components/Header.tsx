@@ -118,7 +118,7 @@ export default function Header() {
                         <FaPhone size={18} className="text-orange-400" />
                     </a>
                     <a 
-                        href="google.com/maps/place/Cornerstone+Renovation+LLC,+Galaxie+Ave,+Apple+Valley,+MN+55124/data=!4m2!3m1!1s0x87f63184403b0ef1:0xcd29a64f7d4553cb?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBzI1LjM4LjIYACDIvAcqmQEsOTQyNjc3MjcsOTQyMjMyOTksOTQyMTY0MTMsOTQyODA1NzYsOTQyMTI0OTYsOTQyMDczOTQsOTQyMDc1MDYsOTQyMDg1MDYsOTQyMTc1MjMsOTQyMTg2NTMsOTQyMjk4MzksOTQyNzUxNjgsOTQyNjI3MzksNDcwODQzOTMsOTQyMTMyMDAsOTQyNTgzMjUsOTQyODY4NzZCAlVT&skid=05ce604c-3b52-41fb-a487-758b9a50114c" 
+                        href="https://maps.app.goo.gl/qiPkPwXGwAcZgNhi6" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center px-2 py-2 rounded-md hover:bg-gray-800/50 transition-all duration-300"
