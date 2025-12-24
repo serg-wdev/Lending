@@ -29,7 +29,7 @@ export default function Header() {
             <div className='hidden md:flex justify-between items-center max-w-7xl mx-auto h-12 sm:h-14'>
                 {/* Logo and Company Name */}
                 <div className='flex items-center gap-2 sm:gap-3'>
-                    <img src="/logo.svg" alt="Cornerstone Renovation" className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg" />
+                    <img src="/logo2.svg.png" alt="Cornerstone Renovation" className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full shadow-lg" />
                     <button 
                         className="hidden sm:inline bg-gradient-to-r from-white via-gray-100 to-gray-200 bg-clip-text text-transparent font-bold text-sm sm:text-base lg:text-lg tracking-wide"
                     >
